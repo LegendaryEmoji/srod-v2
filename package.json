@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "Something-Random-On-Discord Package V2",
   "main": "srod-v2",
+  "types": "srod-v2.d.ts",
   "scripts": {
     "start": "node srod-v2.js"
   },
