@@ -31,8 +31,8 @@ module.exports = {
         return Data;
     },
     RandomString: function (Length, EmbedColor) {
-        if (!Length || length < 1) return Error(`Please Give String Length!`);
-        if (Length > 1500) return Error(`Random String Length Limit - 1500`);
+        if (!Length || length < 1) throw new Error(`Please Give String Length!`);
+        if (Length > 1500) throw new Error(`Random String Length Limit - 1500`);
         const char = crypto.randomBytes(Math.round(Length / 2)).toString("hex");
 
         let Data = {
