@@ -1,6 +1,7 @@
 const Fetch = require("node-fetch")
 const Joker = require('one-liner-joke');
 const { Error } = require("./Src/functions.js");
+const crypto = require("crypto");
 
 module.exports = {
     Hastebin: async function (String, EmbedColor) {
@@ -29,20 +30,15 @@ module.exports = {
 
         return Data;
     },
-    RandomString: async function (Length, EmbedColor) {
-        if (!Length) return Error(`Please Give String Length!`);
-        if (Length.length > 1500) return Error(`Random String Length Limit - 1500`);
-
-        let res = await Fetch(`https://apis.duncte123.me/random-string/${Length}`);
-
-        let json = await res.json();
-
-        if (!json.data) return Error(`Something Went Wrong, Try Again Later!`);
+    RandomString: function (Length, EmbedColor) {
+        if (!Length || length < 1) throw new Error(`Please Give String Length!`);
+        if (Length > 1500) throw new Error(`Random String Length Limit - 1500`);
+        const char = crypto.randomBytes(Math.round(Length / 2)).toString("hex");
 
         let Data = {
             embed: {
                 color: EmbedColor || "RANDOM",
-                description: json.data,
+                description: char,
                 timestamp: new Date()
             }
         };
