@@ -4,9 +4,8 @@ const { Error } = require("./Src/functions.js");
 const crypto = require("crypto");
 
 module.exports = {
-    Hastebin: async function (String, EmbedColor) {
-        if (!String) return Error(`Please Give Something As Data!`);
-        if (String.length > 1500) return Error("String Length Limit - 1500");
+    Hastebin: async (String, EmbedColor) => {
+        if (!String) throw new Error(`Please Give Something As Data!`);
 
         let res = await Fetch("https://hasteb.in/documents", {
             method: "POST",
@@ -16,7 +15,7 @@ module.exports = {
 
         let json = await res.json();
 
-        if (!json.key) return Error(`Something Went Wrong, Try Again Later!`);
+        if (!json.key) throw new Error(`Something Went Wrong, Try Again Later!`);
 
         let Link = `https://hasteb.in/${json.key}.js`;
 
@@ -30,7 +29,7 @@ module.exports = {
 
         return Data;
     },
-    RandomString: function (Length, EmbedColor) {
+    RandomString: function (Length, EmbedColor) => {
         if (!Length || length < 1) throw new Error(`Please Give String Length!`);
         if (Length > 1500) throw new Error(`Random String Length Limit - 1500`);
         const char = crypto.randomBytes(Math.round(Length / 2)).toString("hex");
@@ -45,13 +44,13 @@ module.exports = {
 
         return Data;
     },
-    DiscordSpoiler: async function (String, EmbedColor) {
-        if (!String) return Error(`Please Give Something As Data!`);
-        if (String.length > 1500) return Error(`String Length Limit - 1500`)
+    DiscordSpoiler: async (String, EmbedColor) => {
+        if (!String) throw new Error(`Please Give Something As Data!`);
+        if (String.length > 1500) throw new Error(`String Length Limit - 1500`)
 
         let Result = `||${String}||`;
 
-        if (!Result) return Error(`Something Went Wrong, Try Again Later!`);
+        if (!Result) thow new Error(`Something Went Wrong, Try Again Later!`);
 
         let Data = {
             embed: {
@@ -63,12 +62,13 @@ module.exports = {
 
         return Data;
     },
-    GetMeme: async function (EmbedColor) {
+    
+    GetMeme: async (EmbedColor) => {
         let res = await Fetch(`https://apis.duncte123.me/meme`);
 
         let { data } = await res.json();
 
-        if (!data) return Error("Something Went Wrong, Try Again Later!");
+        if (!data) throw new Error("Something Went Wrong, Try Again Later!");
 
         let Data = {
             embed: {
@@ -84,7 +84,8 @@ module.exports = {
 
         return Data;
     },
-    GetJoke: async function (EmbedColor) {
+    
+    GetJoke: async (EmbedColor) => {
 
         let getRandomJoke = Joker.getRandomJoke();
 
@@ -98,13 +99,13 @@ module.exports = {
 
         return Data;
     },
-    GetAdvice: async function (EmbedColor) {
+    GetAdvice: async (EmbedColor) => {
 
         const res = await Fetch("https://api.adviceslip.com/advice");
 
         let { slip } = await res.json();
 
-        if (!slip) return Error("Something Went Wrong, Try Again Later!")
+        if (!slip) throw new Error("Something Went Wrong, Try Again Later!")
 
         let Data = {
             embed: {
@@ -116,13 +117,14 @@ module.exports = {
 
         return Data;
     },
-    GetFact: async function (EmbedColor) {
+    
+    GetFact: async (EmbedColor) => {
 
         const res = await Fetch("https://nekos.life/api/v2/fact");
 
         let json = await res.json();
 
-        if (!json.fact) return Error("Something Went Wrong, Try Again Later!");
+        if (!json.fact) throw new Error("Something Went Wrong, Try Again Later!");
 
         let Data = {
             embed: {
@@ -134,13 +136,14 @@ module.exports = {
 
         return Data;
     },
-    GetWhy: async function (EmbedColor) {
+    
+    GetWhy: async (EmbedColor) => {
 
         const res = await Fetch("https://nekos.life/api/v2/why");
 
         let json = await res.json();
 
-        if (!json.why) return Error("Something Went Wrong, Try Again Later!");
+        if (!json.why) throw new Error("Something Went Wrong, Try Again Later!");
 
         let Data = {
             embed: {
@@ -152,9 +155,10 @@ module.exports = {
 
         return Data;
     },
-    MinecraftAchievement: async function (String, EmbedColor) {
-        if (!String) return Error("Please Give Something As Data!");
-        if (String.length > 15) return Error("String Length Limit - 15");
+    
+    MinecraftAchievement: async (String, EmbedColor) => {
+        if (!String) throw new Error("Please Give Something As Data!");
+        if (String.length > 15) throw new Error("String Length Limit - 15");
 
         let Link = `https://api.alexflipnote.dev/achievement?text=${String}`;
 
@@ -170,11 +174,12 @@ module.exports = {
 
         return Data;
     },
-    Tweet: async function(Name, Tweet, EmbedColor) {
-        if (!Name) return Error("Please Give Tweet Owner Name!");
-        if (Name.length > 30) return Error("Tweet Owner Name Length Limit - 30");
-        if (!Tweet) return Error("Please Give Tweet!");
-        if (Tweet.length > 100) return Error("Tweet Length Limit - 100");
+    
+    Tweet: async (Name, Tweet, EmbedColor) => {
+        if (!Name) throw new Error("Please Give Tweet Owner Name!");
+        if (Name.length > 30) throw new Error("Tweet Owner Name Length Limit - 30");
+        if (!Tweet) throw new Error("Please Give Tweet!");
+        if (Tweet.length > 100) throw new Error("Tweet Length Limit - 100");
 
         let res = await Fetch(`https://nekobot.xyz/api/imagegen?type=tweet&username=${Name}&text=${Tweet}`);
 
@@ -192,14 +197,15 @@ module.exports = {
 
         return Data;
     },
-    PornhubComment: async function(Name, Image, Comment, EmbedColor) {
-        if (!Name) return Error("Please Give Comment Owner Name!");
-        if (Name.length > 30) return Error("Comment Owner Name Length Limit - 30");
-        if (!Image) return Error("Please Give Comment Owner Avatar Image Link!");
-        if (Image.length > 150) return Error("Comment Owner Avatar Image Length Limit - 150");
-        if (!Image.startsWith("http")) return Error("Please Give Valid Comment Owner Avatar Image Link!");
-        if (!Comment) return Error("Please Give Comment!");
-        if (Comment.length > 100) return Error("Comment Length Limit - 100");
+    
+    PornhubComment: async (Name, Image, Comment, EmbedColor) => {
+        if (!Name) throw new Error("Please Give Comment Owner Name!");
+        if (Name.length > 30) throw new Error("Comment Owner Name Length Limit - 30");
+        if (!Image) throw new Error("Please Give Comment Owner Avatar Image Link!");
+        if (Image.length > 150) throw new Error("Comment Owner Avatar Image Length Limit - 150");
+        if (!Image.startsWith("http")) throw new Error("Please Give Valid Comment Owner Avatar Image Link!");
+        if (!Comment) throw new Error("Please Give Comment!");
+        if (Comment.length > 100) throw new Error("Comment Length Limit - 100");
 
         let res = await Fetch(`https://nekobot.xyz/api/imagegen?type=phcomment&username=${Name}&image=${Image}&text=${Comment}`);
 
@@ -217,9 +223,10 @@ module.exports = {
 
         return Data;
     },
-    Lmgtfy: async function(String, EmbedColor) {
-        if (!String) return Error("Please Give Something As Data!");
-        if (String.length > 500) return Error("String Length Limit - 500");
+    
+    Lmgtfy: async (String, EmbedColor) => {
+        if (!String) throw new Error("Please Give Something As Data!");
+        if (String.length > 500) throw new Error("String Length Limit - 500");
 
         let Stringy = String.split(" ").slice(1).join("+").toLowerCase();
 
@@ -235,10 +242,11 @@ module.exports = {
 
         return Data;
     },
-    GetAnimeStuff: async function (Thing, EmbedColor) {
+    
+    GetAnimeStuff: async (Thing, EmbedColor) => {
         let Things = ["neko", "nekogif", "foxgirl", "waifu", "smug", "baka", "slap", "poke", "pat", "hug", "kiss", "tickle"];
-        if (!Thing) return Error(`Please Give Thing That You Want - Neko, NekoGif, Foxgirl, Waifu, Smug, Baka, Slap, Poke, Pat, Hug, Kiss, Tickle`);
-        if (!Things.some(Ts => Thing.toLowerCase().includes(Ts))) return Error("Please Give Valid Thing That You Want - Neko, NekoGif, Foxgirl, Waifu, Smug, Baka, Slap, Poke, Pat, Hug, Kiss, Tickle");
+        if (!Thing) throw new Error(`Please Give Thing That You Want - Neko, NekoGif, Foxgirl, Waifu, Smug, Baka, Slap, Poke, Pat, Hug, Kiss, Tickle`);
+        if (!Things.some(Ts => Thing.toLowerCase().includes(Ts))) throw new Error("Please Give Valid Thing That You Want - Neko, NekoGif, Foxgirl, Waifu, Smug, Baka, Slap, Poke, Pat, Hug, Kiss, Tickle");
 
         let res;
         if (Thing.toLowerCase() === "foxgirl") {
@@ -251,7 +259,7 @@ module.exports = {
 
         let json = await res.json();
 
-        if (!json.url) return Error(`Something Went Wrong, Try Again Later!`);
+        if (!json.url) throw new Error(`Something Went Wrong, Try Again Later!`);
 
         let Data = {
             embed: {
@@ -263,10 +271,11 @@ module.exports = {
 
         return Data;
     },
-    GetAnimalStuff: async function (Thing, EmbedColor) {
+    
+    GetAnimalStuff: async (Thing, EmbedColor) => {
         let Things = ["dog", "cat", "duck", "bird", "panda", "wolf", "fox", "seal", "llama", "alpaca", "camel", "lizard", "snake"];
-        if (!Thing) return Error(`Please Give Thing That You Want - Dog, Cat, Duck, Bird, Panda, Wolf, Fox, Seal, Llama, Alpaca, Camel, Lizard, Snake`);
-        if (!Things.some(Ts => Thing.toLowerCase().includes(Ts))) return Error("Please Give Valid Thing That You Want - Dog, Cat, Duck, Bird, Panda, Wolf, Fox, Seal, Llama, Alpaca, Camel, Lizard, Snake");
+        if (!Thing) throw new Error(`Please Give Thing That You Want - Dog, Cat, Duck, Bird, Panda, Wolf, Fox, Seal, Llama, Alpaca, Camel, Lizard, Snake`);
+        if (!Things.some(Ts => Thing.toLowerCase().includes(Ts))) throw new Error("Please Give Valid Thing That You Want - Dog, Cat, Duck, Bird, Panda, Wolf, Fox, Seal, Llama, Alpaca, Camel, Lizard, Snake");
 
         if (Thing.toLowerCase() === "snake") {
 
@@ -276,11 +285,11 @@ module.exports = {
 
             const { data } = await res.json();
 
-            if (!data) return Error("Something Went Wrong, Try Again Later!");
+            if (!data) throw new Error("Something Went Wrong, Try Again Later!");
 
             const Nsfw = data.children.filter((post) => !post.data.over_18);
 
-            if (!Nsfw.length) return Error(`No Snakes images Found, Try Again Later!`);
+            if (!Nsfw.length) throw new Error(`No Snakes images Found, Try Again Later!`);
 
             const Post = Nsfw[Math.floor(Math.random() * Nsfw.length)];
 
@@ -301,7 +310,7 @@ module.exports = {
 
         let { data } = await res.json();
 
-        if (!data) return Error("Something Went Wrong, Try Again Later!");
+        if (!data) throw new Error("Something Went Wrong, Try Again Later!");
 
         let Data = {
             embed: {
