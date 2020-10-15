@@ -1,6 +1,6 @@
 {
   "name": "srod-v2",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Something-Random-On-Discord Package V2",
   "main": "srod-v2",
   "scripts": {
@@ -19,6 +19,9 @@
     "Fact",
     "Anime",
     "Animal",
+    "Joke",
+    "Canvas",
+    "Image",
     "MinecraftAchievement"
   ],
   "author": "Legendary Emoji#1742",
