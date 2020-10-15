@@ -173,7 +173,214 @@ module.exports = {
 
         return Data;
     },
+    MinecraftChallenge: async function (String, EmbedColor) {
+        if (!String) throw new Error("Please Give Something As Data!");
+        if (String.length > 15) throw new Error("String Length Limit - 15");
 
+        let Link = `https://api.alexflipnote.dev/challenge?text=${String}`;
+
+        let Data = {
+            embed: {
+                color: EmbedColor || "RANDOM",
+                image: {
+                    url: Link.toLowerCase()
+                },
+                timestamp: new Date()
+            }
+        };
+
+        return Data;
+    },
+    TomCalling: async function (String, EmbedColor) {
+        if (!String) throw new Error("Please Give Something As Data!");
+        if (String.length > 15) throw new Error("String Length Limit - 15");
+
+        let Link = `https://api.alexflipnote.dev/calling?text=${String}`;
+
+        let Data = {
+            embed: {
+                color: EmbedColor || "RANDOM",
+                image: {
+                    url: Link
+                },
+                timestamp: new Date()
+            }
+        };
+
+        return Data;
+    },
+    AmIJokeToYou: async function (Image, EmbedColor) {
+        if (!Image) throw new Error("Please Give Me A Image Link!");
+        if (Image.length > 100) throw new Error("Image Length Limit - 100");
+
+        let Link = `https://api.alexflipnote.dev/amiajoke?image=${Image}`;
+
+        let Data;
+
+        try {
+
+            Data = {
+                embed: {
+                    color: EmbedColor || "RANDOM",
+                    image: {
+                        url: Link
+                    },
+                    timestamp: new Date()
+                }
+            };
+
+        } catch (error) {
+            throw new Error(`Invalid Image Or Something Went Wrong, Try Again Later!`);
+        }
+
+        return Data;
+    },
+    Bad: async function (Image, EmbedColor) {
+        if (!Image) throw new Error("Please Give Me A Image Link!");
+        if (Image.length > 100) throw new Error("Image Length Limit - 100");
+
+        let Link = `https://api.alexflipnote.dev/bad?image=${Image}`;
+
+        let Data;
+
+        try {
+
+            Data = {
+                embed: {
+                    color: EmbedColor || "RANDOM",
+                    image: {
+                        url: Link
+                    },
+                    timestamp: new Date()
+                }
+            };
+
+        } catch (error) {
+            throw new Error(`Invalid Image Or Something Went Wrong, Try Again Later!`);
+        }
+
+        return Data;
+    },
+    JokeOverHead: async function (Image, EmbedColor) {
+        if (!Image) throw new Error("Please Give Me A Image Link!");
+        if (Image.length > 100) throw new Error("Image Length Limit - 100");
+
+        let Link = `https://api.alexflipnote.dev/jokeoverhead?image=${Image}`;
+
+        let Data;
+
+        try {
+
+            Data = {
+                embed: {
+                    color: EmbedColor || "RANDOM",
+                    image: {
+                        url: Link
+                    },
+                    timestamp: new Date()
+                }
+            };
+
+        } catch (error) {
+            throw new Error(`Invalid Image Or Something Went Wrong, Try Again Later!`);
+        }
+
+        return Data;
+    },
+    Scroll: async function (String, EmbedColor) {
+        if (!String) throw new Error("Please Give Something As Data!");
+        if (String.length > 30) throw new Error("String Length Limit - 30");
+
+        let Link = `https://api.alexflipnote.dev/scroll?text=${String}`;
+
+        let Data = {
+            embed: {
+                color: EmbedColor || "RANDOM",
+                image: {
+                    url: Link
+                },
+                timestamp: new Date()
+            }
+        };
+
+        return Data;
+    },
+    Recaptcha: async function (String, EmbedColor) {
+        if (!String) throw new Error("Please Give Something As Data!");
+        if (String.length > 30) throw new Error("String Length Limit - 30");
+
+        let Link = `https://api.alexflipnote.dev/captcha?text=${String}`;
+
+        let Data = {
+            embed: {
+                color: EmbedColor || "RANDOM",
+                image: {
+                    url: Link
+                },
+                timestamp: new Date()
+            }
+        };
+
+        return Data;
+    },
+    Facts: async function (String, EmbedColor) {
+        if (!String) throw new Error("Please Give Something As Data!");
+        if (String.length > 30) throw new Error("String Length Limit - 30");
+
+        let Link = `https://api.alexflipnote.dev/facts?text=${String}`;
+
+        let Data = {
+            embed: {
+                color: EmbedColor || "RANDOM",
+                image: {
+                    url: Link
+                },
+                timestamp: new Date()
+            }
+        };
+
+        return Data;
+    },
+    DidYouMean: async function (Top, Bottom, EmbedColor) {
+        if (!Top) throw new Error("Please Give Search/Top Text!");
+        if (Top.length > 20) throw new Error("Top Length Limit - 20");
+        if (!Bottom) throw new Error("Please Give Result/Bottom Text!");
+        if (Bottom.length > 30) throw new Error("Bottom Length Limit - 30");
+
+        let Link = `https://api.alexflipnote.dev/didyoumean?top=${Top}&bottom=${Bottom}`;
+
+        let Data = {
+            embed: {
+                color: EmbedColor || "RANDOM",
+                image: {
+                    url: Link
+                },
+                timestamp: new Date()
+            }
+        };
+
+        return Data;
+    },
+    Drake: async function (Top, Bottom, EmbedColor) {
+        if (!Top) throw new Error("Please Give Top Text!");
+        if (Top.length > 20) throw new Error("Top Length Limit - 20");
+        if (!Bottom) throw new Error("Please Give Bottom Text!");
+        if (Bottom.length > 30) throw new Error("Bottom Length Limit - 30");
+
+        let Link = `https://api.alexflipnote.dev/drake?top=${Top}&bottom=${Bottom}`;
+
+        let Data = {
+            embed: {
+                color: EmbedColor || "RANDOM",
+                image: {
+                    url: Link
+                },
+                timestamp: new Date()
+            }
+        };
+
+        return Data;
+    },
     Tweet: async function (Name, Tweet, EmbedColor) {
         if (!Name) throw new Error("Please Give Tweet Owner Name!");
         if (Name.length > 30) throw new Error("Tweet Owner Name Length Limit - 30");
@@ -198,7 +405,92 @@ module.exports = {
 
         return Data;
     },
+    PornhubLogo: async function (Data1, Data2, EmbedColor) {
+        if (!Data1) throw new Error("Please Give White Text!");
+        if (Data1.length > 7) throw new Error("White Text Length Limit - 7");
+        if (!Data2) throw new Error("Please Give Orange Text!");
+        if (Data2.length > 7) throw new Error("Orange Text Length Limit - 7");
 
+        let Link = `https://api.alexflipnote.dev/pornhub?text=${Data1}&text2=${Data2}`;
+
+        let Data = {
+            embed: {
+                color: EmbedColor || "RANDOM",
+                image: {
+                    url: Link
+                },
+                timestamp: new Date()
+            }
+        };
+
+        return Data;
+    },
+    BlushFact: async function (String, EmbedColor) {
+        if (!String) throw new Error("Please Give Something As Data!");
+        if (String.length > 500) throw new Error("String Length Limit - 500");
+
+        let res = await Fetch(`https://nekobot.xyz/api/imagegen?type=fact&text=${String}`);
+
+        let json = await res.json();
+
+        if (!json.message) throw new Error("Something Went Wrong, Try Again Later!");
+
+        let Data = {
+            embed: {
+                color: EmbedColor || "RANDOM",
+                image: {
+                    url: json.message
+                },
+                timestamp: new Date()
+            }
+        };
+
+        return Data;
+    },
+    Clyde: async function (String, EmbedColor) {
+        if (!String) throw new Error("Please Give Something As Data!");
+        if (String.length > 700) throw new Error("String Length Limit - 700");
+
+        let res = await Fetch(`https://nekobot.xyz/api/imagegen?type=clyde&text=${String}`);
+
+        let json = await res.json();
+
+        if (!json.message) throw new Error("Something Went Wrong, Try Again Later!");
+
+        let Data = {
+            embed: {
+                color: EmbedColor || "RANDOM",
+                image: {
+                    url: json.message
+                },
+                timestamp: new Date()
+            }
+        };
+
+        return Data;
+    },
+    ChangeMyMind: async function (String, EmbedColor) {
+        if (!String) throw new Error("Please Give Something As Data!");
+        if (String.length > 70) throw new Error("String Length Limit - 70");
+
+        let res = await Fetch(`https://nekobot.xyz/api/imagegen?type=changemymind&text=${String}`);
+
+        let json = await res.json();
+
+        if (!json.message) throw new Error("Something Went Wrong, Try Again Later!");
+
+        let Data = {
+            embed: {
+                color: EmbedColor || "RANDOM",
+                image: {
+                    url: json.message
+                },
+                timestamp: new Date()
+            }
+        };
+
+        return Data;
+    },
     PornhubComment: async function (Name, Image, Comment, EmbedColor) {
         if (!Name) throw new Error("Please Give Comment Owner Name!");
         if (Name.length > 30) throw new Error("Comment Owner Name Length Limit - 30");
@@ -231,7 +523,7 @@ module.exports = {
         if (!String) throw new Error("Please Give Something As Data!");
         if (String.length > 500) throw new Error("String Length Limit - 500");
 
-        let Stringy = String.split(" ").slice(1).join("+").toLowerCase();
+        let Stringy = String.trim().replace("     ", "+").replace("    ", "+").replace("   ", "+").replace("  ", "+").replace(" ", "+");
 
         let Link = `https://lmgtfy.com/?q=${Stringy}`;
 
