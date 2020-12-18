@@ -1,6 +1,6 @@
 {
   "name": "srod-v2",
-  "version": "0.0.4",
+  "version": "1.0.0",
   "description": "Something-Random-On-Discord Package V2",
   "main": "srod-v2",
   "scripts": {
@@ -12,17 +12,8 @@
   },
   "keywords": [
     "Discord.js",
-    "Joke",
-    "Hastebin",
-    "Meme",
-    "Advice",
-    "Fact",
-    "Anime",
-    "Animal",
-    "Joke",
-    "Canvas",
-    "Image",
-    "MinecraftAchievement"
+    "Random",
+    "Emo"
   ],
   "author": "Legendary Emoji#1742",
   "license": "ISC",
@@ -31,8 +22,6 @@
   },
   "homepage": "https://github.com/LegendaryEmoji/srod-v2#readme",
   "dependencies": {
-    "discord.js": "^12.3.1",
-    "node-fetch": "^2.6.1",
-    "one-liner-joke": "^1.2.0"
+    "node-fetch": "^2.6.1"
   }
 }
