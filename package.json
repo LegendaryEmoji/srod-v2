@@ -1,6 +1,6 @@
 {
   "name": "srod-v2",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Something-Random-On-Discord Package V2",
   "main": "srod-v2",
   "scripts": {
@@ -11,12 +11,11 @@
     "url": "git+https://github.com/LegendaryEmoji/srod-v2.git"
   },
   "keywords": [
-    "Discord.js",
     "Random",
     "Emo"
   ],
   "author": "Legendary Emoji#1742",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/LegendaryEmoji/srod-v2/issues"
   },
