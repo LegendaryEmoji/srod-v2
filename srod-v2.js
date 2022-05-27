@@ -34,5 +34,18 @@ module.exports = {
     Tweet: require("./Src/Main.js").Tweet,
     Wasted: require("./Src/Main.js").Wasted,
     WhoWouldWin: require("./Src/Main.js").WhoWouldWin,
-    YoutubeComment: require("./Src/Main.js").YoutubeComment
+    YoutubeComment: require("./Src/Main.js").YoutubeComment,
+    Ass: require("./Src/nsfw.js").Ass,
+    Bikini: require("./Src/nsfw.js").Bikini,
+    Boobs: require("./Src/nsfw.js").Boobs,
+    Cum: require("./Src/nsfw.js").Cum,
+    Feet: require("./Src/nsfw.js").Feet,
+    Hentai: require("./Src/nsfw.js").Hentai,
+    Nsfw: require("./Src/nsfw.js").Nsfw,
+    Pussy: require("./Src/nsfw.js").Pussy,
+    Socks: require("./Src/nsfw.js").Socks,
+    Tattoo: require("./Src/nsfw.js").Tattoo,
+    Teen: require("./Src/nsfw.js").Teen,
+    Thighs: require("./Src/nsfw.js").Thighs,
+    Yogapants: require("./Src/nsfw.js").Yogapants
 };
